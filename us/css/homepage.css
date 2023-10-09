@@ -1,0 +1,297 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: rgb(213, 214, 214);
+}
+.section {
+  position: relative;
+  width: 1440px;
+  height: 720px;
+  background-color: white;
+  margin: 5px auto;
+  overflow: hidden;
+  background: linear-gradient(0deg, rgba(168, 237, 234, 0.72) 0%, rgba(254, 214, 227, 0.85) 100%);
+}
+.container {
+  position: relative;
+  top: 80px;
+  width: 650px;
+  height: 450px;
+  background-color: white;
+  margin: 0px auto;
+  border-radius: 10px;
+}
+
+.heart-box {
+  position: relative;
+  top: 30px;
+  left: 200px;
+  width: 200px;
+  height: 250px;
+  padding: 20px;
+}
+
+/* 爱心代码 */
+.heart {
+  position: relative;
+  left: 40px;
+  width: 120px;
+  height: 120px;
+  background-color: #fc427b;
+  border-radius: 0 7px 0 7px;
+  transform: rotate(-45deg);
+  /* 调用动画 */
+  animation: move 5s linear infinite, rectangle 5s linear;
+}
+
+/* 伪元素选择器，必须有前两行*/
+.heart::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -60px;
+  width: 120px;
+  height: 120px;
+  background-color: #fc427b;
+  border-radius: 50%;
+  animation: circle1 5s linear;
+  box-shadow: -10px 10px 13px -8px pink inset;
+}
+
+.heart::after {
+  content: "";
+  display: block;
+  position: absolute;
+  right: -60px;
+  width: 120px;
+  height: 120px;
+  background-color: #fc427b;
+  border-radius: 50%;
+  animation: circle2 5s linear;
+  box-shadow: -25px 5px 22px -13px pink inset;
+}
+
+.foot {
+  position: absolute;
+  top: 210px;
+  left: 83px;
+  width: 120px;
+  height: 120px;
+  background-color: rgb(224, 223, 223);
+  border-radius: 50%;
+  transform: rotate3d(1, 0, 0, 75deg);
+  animation: change 5s linear infinite;
+}
+
+/* 爱心变化动画，定义帧 */
+@keyframes rectangle {
+  0% {
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    border-radius: 50%;
+  }
+  25% {
+    border-radius: 50%;
+    background-color: #f9f871;
+  }
+  50% {
+    background-color: #ffaa57;
+  }
+  75% {
+    width: 120px;
+    height: 120px;
+    background-color: #ff5d7b;
+  }
+  100% {
+    border-radius: 0 7px 0 7px;
+
+    background-color: #fc427b;
+    transform: rotate(-45deg);
+  }
+}
+
+@keyframes circle1 {
+  0% {
+    top: 0px;
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    box-shadow: 0 0 0 0 pink insert !important;
+  }
+  25% {
+    top: 0px;
+    background-color: #f9f871;
+  }
+  50% {
+    top: 0px;
+    background-color: #ffaa57;
+  }
+  75% {
+    top: -60px;
+    width: 120px;
+    height: 120px;
+    background-color: #ff5d7b;
+  }
+  100% {
+    box-shadow: -10px 10px 13px -8px pink inset;
+    background-color: #fc427b;
+  }
+}
+
+@keyframes circle2 {
+  0% {
+    right: 0px;
+    width: 40px;
+    height: 40px;
+    background-color: white;
+  }
+  25% {
+    right: 0px;
+    background-color: #f9f871;
+  }
+  50% {
+    right: 0px;
+    background-color: #ffaa57;
+  }
+  75% {
+    right: -60px;
+    width: 120px;
+    height: 120px;
+    background-color: #ff5d7b;
+    box-shadow: 0 0 0 0 pink insert;
+  }
+  100% {
+    background-color: #fc427b;
+    box-shadow: -25px 5px 22px -13px pink inset;
+  }
+}
+
+/* 爱心上下移动动画 */
+@keyframes move {
+  0% {
+    top: 25px;
+    border-radius: 0 5px 0 5px;
+  }
+  50% {
+    top: 65px;
+    border-radius: 0 10px 0 10px;
+  }
+  100% {
+    top: 25px;
+    border-radius: 0 5px 0 5px;
+  }
+}
+
+@keyframes change {
+  0% {
+    left: 88px;
+    width: 60px;
+    height: 60px;
+    background-color: rgb(224, 223, 223);
+  }
+  50% {
+    left: 83px;
+    width: 80px;
+    height: 80px;
+    background-color: rgb(176, 173, 173);
+  }
+  100% {
+    left: 88px;
+    width: 60px;
+    height: 60px;
+    background-color: rgb(224, 223, 223);
+  }
+}
+
+/* 背景 */
+.flower {
+  position: absolute;
+  bottom: 0;
+  width: 1300px;
+  height: 720px;
+}
+.back1,
+.back2,
+.back3 {
+  position: absolute;
+}
+
+.back1 {
+  top: 0;
+  right: 40px;
+  width: 250px;
+  height: 350px;
+}
+.back2 {
+  bottom: -60px;
+  right: -200px;
+  width: 650px;
+  height: 400px;
+}
+.back3 {
+  bottom: 30px;
+  left: 500px;
+  width: 80px;
+  height: 80px;
+}
+
+.my,
+.he {
+  position: absolute;
+  top: 80px;
+  left: 80px;
+  font: 60px bold;
+}
+
+.he {
+  left: 480px;
+}
+
+.timer-box {
+    width: 100%;
+    height: 100px;
+    margin-top: 10px;
+    font-size: 30px;
+}
+
+.love {
+    display: block;
+    width: 180px;
+    margin: 0 auto;
+}
+
+.timer {
+    display: block;
+    width: 300px;
+    margin: 0 auto;
+}
+
+/* 按钮 */
+.btn1,
+.btn2 {
+  position: absolute;
+  bottom: 20px;
+  left: 550px;
+  width: 100px;
+  height: 100px;
+  background-color: white;
+  border-radius: 50%;
+}
+.btn1 {
+  text-align: center;
+  text-decoration: none;
+  color: deepskyblue;
+  font-size:18px;
+  line-height: 80px;
+}
+
+.btn2 {
+  left: 750px;
+  background-image: url(../images/letter.png);
+  background-size: 100% 100%;
+}
+

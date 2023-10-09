@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>写给你的信</title>
+    <link rel="stylesheet" href="../css/letter.css" />
+  </head>
+  <body>
+    <section>
+      <div class="hide-box" id="hideBox">
+        <div class="hide">
+          <img src="../images/back3.png" alt="" />
+          <p>点击确定查看信件</p>
+        </div>
+        <div class="hide">
+          <img src="../images/back3.png" alt="" />
+          <p>不对哦，要点这里</p>
+        </div>
+        <div class="hide">
+          <img src="../images/back3.png" alt="" />
+          <p>嘿嘿，逗你玩</p>
+        </div>
+        <div class="hide">
+          <img src="../images/back3.png" alt="" />
+          <p>好，不逗你了，点这里</p>
+        </div>
+        <div class="hide">
+          <img src="../images/back3.png" alt="" />
+          <p>略略略，谁叫你欺负我</p>
+        </div>
+        <div class="hide">
+          <img src="../images/back3.png" alt="" />
+          <p>猜猜下一个在哪里</p>
+        </div>
+        <div class="hide">
+          <img src="../images/back3.png" alt="" />
+          <p>嘿嘿，抱一个</p>
+        </div>
+        <div class="hide">
+          <img src="../images/back3.png" alt="" />
+          <p>嘿嘿，解密成功</p>
+        </div>
+      </div>
+      <div class="content">
+        <h1>新房</h1>
+      </div>
+    </section>
+
+    <script>
+      var hideBox = document.getElementById("hideBox");
+      var hideList = document.getElementsByClassName("hide");
+
+      // 设置随机定位
+      var date = new Date();
+      console.log(date.getTime());
+
+      // 随机定位函数
+      function gps(ex) {
+        var date = new Date();
+        var leftPos = (date.getTime() % 1100) + "px";
+        var topPos = (date.getTime() % 500) + "px";
+        ex.style.left = leftPos;
+        ex.style.top = topPos;
+      }
+
+      // 将每个元素设置隐藏
+      for (var i = 1; i < hideList.length; i++) {
+        hideList[i].style.display = "none";
+      }
+      //给每个hide设置点击事件
+      for (var i = 0; i < hideList.length - 1; i++) {
+        // 给每个元素设置下标属性
+        hideList[i].setAttribute("data-index", i);
+        // 点击事件
+        hideList[i].addEventListener("click", function (e) {
+          this.style.display = "none";
+          var next = parseInt(this.getAttribute("data-index"));
+          console.log(next + 1);
+          hideList[next + 1].style.display = "block";
+          gps(hideList[next + 1]);
+        });
+      }
+      // 最后一个点击事件
+      hideList[hideList.length - 1].addEventListener("click", function () {
+        hideBox.style.display = "none";
+      });
+    </script>
+  </body>
+</html>
